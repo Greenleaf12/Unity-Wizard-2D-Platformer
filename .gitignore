@@ -3,6 +3,21 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 /[Aa]ssets/Sounds/
+/[Aa]ssets/Cainos Pixel Art/
+/[Aa]ssets/Codes/
+/[Aa]ssets/Environment/
+/[Aa]ssets/FX Prefabs/
+/[Aa]ssets/JMO Particle FX/
+/[Aa]ssets/Landscape/
+/[Aa]ssets/Menu Art/
+/[Aa]ssets/Particles FX/
+/[Aa]ssets/PathCreator/
+/[Aa]ssets/Physic Materials/
+/[Aa]ssets/Player Sprites/
+/[Aa]ssets/Scenes/
+/[Aa]ssets/Menu Art/
+/[Aa]ssets/TextMesh Pro/
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
