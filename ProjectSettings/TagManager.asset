@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Coins
+  - Goal
+  - Ball
+  - Landscape
+  - FxTemporaire
+  - Trigger
+  - Region
+  - Enemy
+  - ManaBar
+  - Crate
+  - Firepoint
+  - Frog
+  - WizardOrb
+  - Sword
+  - EnemySFXHitBox
+  - Bones
+  - MovingPlatform
+  - Platform
+  - PFX
+  - Collectable
+  - MageOrb
+  - NoTrigger
+  - Smasher
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Ball
+  - Ground
+  - Frogs
+  - Enemy
+  - Object
+  - Bones
+  - Coins
+  - Bats
+  - WizardOrb
+  - Landscape
+  - Collectable
+  - Crate
+  - MageOrb
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
