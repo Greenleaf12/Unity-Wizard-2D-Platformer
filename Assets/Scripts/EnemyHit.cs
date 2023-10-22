@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Does damage to enemy (Skeletons)
+// Uses health and adds score
+// Spawns gibs on death
+
 public class EnemyHit : MonoBehaviour
 {
     public int health = 100;
@@ -19,7 +23,6 @@ public class EnemyHit : MonoBehaviour
     {
         if (health <= 0 && gameObject != null)
         {
-
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             FindObjectOfType<AudioManager>().Stop("Skeleton_Footsteps");
             FindObjectOfType<AudioManager>().Play("Skeleton_Die");
@@ -43,6 +46,7 @@ public class EnemyHit : MonoBehaviour
             hitEffect.Play();          
         }
     }
+
     void Die()
     {
         ScoreManager.instance.ChangeScore(scoreValue);

@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Bone : MonoBehaviour
 {
-    //public AudioClip impact;
     private AudioSource audioSource;
 
     public float cooldownTime = 1f;
-
     private float nextFireTime = 0f;
-
     public float velocityX = 12.0f;
     public float velocityY = 6.0f;
     public float randomScaleMin = 0.6f;
@@ -29,14 +26,11 @@ public class Bone : MonoBehaviour
         IEnumerator TimerCoroutinex()
         {
             yield return new WaitForSeconds(Random.Range(6, 12));
-
             Destroy(gameObject);
-
         }
     }
 
     void OnTriggerEnter2D(Collider2D trig)
-
     {
         if (Time.time > nextFireTime)
         {

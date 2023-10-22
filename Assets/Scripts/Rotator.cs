@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Rotator : MonoBehaviour
 {
     //Rotational Speed
@@ -46,6 +45,5 @@ public class Rotator : MonoBehaviour
         {
             transform.Rotate(0, 0, -Time.deltaTime * speed, Space.Self);
         }
-
     }
 }

@@ -4,16 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     private float FadeTime = 0.5f;
-
-
     void Awake()
     {
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -26,10 +22,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        // Create a temporary reference to the current scene.
         Scene currentScene = SceneManager.GetActiveScene();
-
-        // Retrieve the name of this scene.
         string sceneName = currentScene.name;
 
         Play("Music");
@@ -38,22 +31,18 @@ public class AudioManager : MonoBehaviour
             Play("Forest");
             Play("Spawn_Player");
         }
-
     }
-
 
     public void Play (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
-
     }
 
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Stop();
-
     }
 
     public void SetVolume(string name, float setVolume)
@@ -64,7 +53,6 @@ public class AudioManager : MonoBehaviour
 
     public void Fade(string name)
     {
-
         Sound s = Array.Find(sounds, sound => sound.name == name);
         float startVolume = s.source.volume;
 
@@ -72,7 +60,6 @@ public class AudioManager : MonoBehaviour
         {
             s.source.volume -= startVolume * Time.deltaTime / FadeTime;
         }
-
         {
             StartCoroutine(TimerCoroutinex());
         }
@@ -81,8 +68,7 @@ public class AudioManager : MonoBehaviour
         {
             yield return new WaitForSeconds(FadeTime);
             s.source.volume = startVolume;
-            s.source.Stop();
-            
+            s.source.Stop();           
         }
     }
 }

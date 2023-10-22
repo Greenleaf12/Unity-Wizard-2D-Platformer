@@ -11,9 +11,6 @@ public class movePlatform : MonoBehaviour
 
     public Transform point1;
     public Transform point2;
-
-
-
     void Start()
     {
        move();
@@ -37,7 +34,6 @@ public class movePlatform : MonoBehaviour
 
     void Update()
     {
-
         if (moveLeft == true)
         {
             transform.position = Vector2.MoveTowards(transform.position, point1.position, platformSpeedX * Time.deltaTime);
@@ -47,8 +43,7 @@ public class movePlatform : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, point2.position, platformSpeedX * Time.deltaTime);
             transform.position = new Vector3(transform.position.x, transform.position.y, 7);
-        }
-          
+        }        
     }
 
     void move()
@@ -59,7 +54,6 @@ public class movePlatform : MonoBehaviour
         IEnumerator TimerCoroutinex()
         {
             moveLeft = true;              
-            // Wait 
             yield return new WaitForSeconds(timeLeft);
             moveRight();
         }
@@ -73,7 +67,6 @@ public class movePlatform : MonoBehaviour
         IEnumerator TimerCoroutinex()
         {
             moveLeft = false;
-            // Wait 
             yield return new WaitForSeconds(timeRight);
             move();
         }

@@ -16,7 +16,6 @@ public class Enemy_Bat : MonoBehaviour
 
     private void Start()
     {
-
         audioSource = this.GetComponent<AudioSource>();
     }
 
@@ -32,26 +31,19 @@ public class Enemy_Bat : MonoBehaviour
             Instantiate(deathEffect, transform.position, Quaternion.identity);        
             FindObjectOfType<AudioManager>().Play("Skeleton_Die");
             Bones();
-            Die();
-            
+            Die(); 
         }     
     }
 
     void Bones()
-
     {
-
         GameObject boneInstance1;
         GameObject boneInstance2;
         GameObject boneInstance3;
 
-
         boneInstance1 = Instantiate(bonesHead, transform.position + new Vector3(1.5f, 1.5f, 1.5f), Quaternion.identity);
         boneInstance2 = Instantiate(bonesRib1, transform.position + new Vector3(0.2f, 0.2f, 0.2f), Quaternion.identity);
-        boneInstance3 = Instantiate(bonesArm1, transform.position + new Vector3(0.4f, 0.4f, 0.4f), Quaternion.identity);
-
-       
-
+        boneInstance3 = Instantiate(bonesArm1, transform.position + new Vector3(0.4f, 0.4f, 0.4f), Quaternion.identity);  
     }
 
     void Die()

@@ -14,13 +14,11 @@ public class roamingNPC : MonoBehaviour
     private float cordX; // Random X
     private float cordY; // Random Y
 
-    // Start is called before the first frame update
     void Start()
     {
         ReturnHome();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ReturnHome();
@@ -33,17 +31,14 @@ public class roamingNPC : MonoBehaviour
             Debug.Log(nextFireTime2);
         }
     }
+
     private void ReturnHome()
-
     {
-        //Debug.Log("Returnhome");
         transform.position = Vector2.MoveTowards(transform.position, startingPoint.transform.position + new Vector3(cordX, cordY, 0.0f), speed * Time.deltaTime);
-
     }
 
     private void randomNumber()
     {
-
         cordX = Random.Range(-XYpos, XYpos);
         cordY = Random.Range(-XYpos, XYpos);
     }

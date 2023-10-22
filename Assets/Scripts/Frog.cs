@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Frog NPC
 public class Frog : MonoBehaviour
 {
     [SerializeField] private float leftCap;
@@ -55,7 +56,7 @@ public class Frog : MonoBehaviour
         }
     }
 
-    private void jumpingLeft() // Left
+    private void jumpingLeft() 
     
             {
             audioSource.Play();
@@ -65,7 +66,7 @@ public class Frog : MonoBehaviour
             rb.velocity = new Vector2(-jumpLength, jumpHeight);
             }
 
-    private void jumpingRight() // Right
+    private void jumpingRight() 
 
     {
         audioSource.Play();
@@ -81,9 +82,7 @@ public class Frog : MonoBehaviour
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
-
     }
-
     private void Move()
         {
 
@@ -91,7 +90,7 @@ public class Frog : MonoBehaviour
         if (facingLeft == true && transform.position.x > leftCap)
         {
 
-            // Make jump if touching ground
+            // jump if touching ground
             if (col.IsTouchingLayers(Ground))
             {
                 StartCoroutine(TimerCoroutine());
@@ -100,8 +99,6 @@ public class Frog : MonoBehaviour
             IEnumerator TimerCoroutine()
             {
                 yield return new WaitForSeconds(Random.Range(1.0f, 2.0f));
-
-                // Jump Left
                 jumpingLeft();
             }
         }
@@ -109,28 +106,17 @@ public class Frog : MonoBehaviour
         // else change direction
         else
         {
-                facingRight = true;
-                facingLeft = false;
+            // Jump right
+            facingRight = true;
+            facingLeft = false;
         }
 
         // Check if facing right and below right cap
         if (facingRight == true && transform.position.x < rightCap)
         {
             jumpingRight();
-
-/*            {
-                StartCoroutine(TimerCoroutine());
-            }
-
-            // Jump Right
-            IEnumerator TimerCoroutine()
-            {
-                yield return new WaitForSeconds(Random.Range(1.0f, 2.0f));
-                
-            }*/
-
-            
         }
+
         // else change direction
         else
         {

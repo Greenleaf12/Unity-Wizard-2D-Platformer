@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ManaBarNew : MonoBehaviour
 {
-
     private Image barImage;
 
     private float barMaskWidth;
@@ -21,7 +20,6 @@ public class ManaBarNew : MonoBehaviour
     private RawImage barRawImage;
 
     private void Awake()
-
     {
         barMaskRectTransform = transform.Find("barMask").GetComponent<RectTransform>();
         barRawImage = transform.Find("barMask").Find("bar").GetComponent<RawImage>();
@@ -29,12 +27,10 @@ public class ManaBarNew : MonoBehaviour
         barMaskWidth = barMaskRectTransform.sizeDelta.x;
 
         edgeRectTransform = transform.Find("barMask").Find("BarEdge").GetComponent<RectTransform>();
-
-}
+    }
 
     private void Update()
-    {
-        
+    {  
         Rect uvRect = barRawImage.uvRect;
         uvRect.x -= .1f * Time.deltaTime;
         barRawImage.uvRect = uvRect;
@@ -52,8 +48,7 @@ public class ManaBarNew : MonoBehaviour
         {
             FindObjectOfType<PlayerMovement>().Kick();
             SpendMana(5);
-        }
-        
+        }      
     }
 
     public void AddMana(int amount)
@@ -70,5 +65,4 @@ public class ManaBarNew : MonoBehaviour
     {
         return manaAmount / MANA_MAX;
     }
-
 }

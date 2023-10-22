@@ -7,10 +7,8 @@ using TMPro;
 
 public class TimerController : MonoBehaviour
 {
-    public static TimerController instance;
-    
+    public static TimerController instance;    
     public TextMeshProUGUI timeCounter;
-
     public TextMeshProUGUI timeofdayCounter;
 
     private TimeSpan timePlaying;
@@ -25,8 +23,7 @@ public class TimerController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-        
+        instance = this;      
     }
 
     private void Start()
@@ -40,8 +37,7 @@ public class TimerController : MonoBehaviour
     }
 
     public void BeginTimer()
-    {
-        
+    {      
         timerGoing = true;
         elapsedTime = 0f;
 
@@ -51,7 +47,6 @@ public class TimerController : MonoBehaviour
     public void EndTimer()
     {
         timerGoing = false;
-
         {
             StartCoroutine(TimeBonus());
         }
@@ -84,7 +79,6 @@ public class TimerController : MonoBehaviour
                 GetComponent<Collider2D>().enabled = false;
             }
         }
-
     }
 
     private IEnumerator UpdateTimer()
@@ -96,13 +90,7 @@ public class TimerController : MonoBehaviour
             string timePlayingStr = "Time: " + timePlaying.ToString("mm':'ss'.'ff");
             timeCounter.text = timePlayingStr;
 
-            yield return null;
-        
-        
-        }
-    
-    
+            yield return null;            
+        }     
     }
-
-
 }

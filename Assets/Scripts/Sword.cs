@@ -10,15 +10,12 @@ public class Sword : MonoBehaviour
     private AudioSource audioSource;
     public ParticleSystem swordParticles;
 
-    // Start is called before the first frame update
-
     void Start()
     {
             audioSource = this.GetComponent<AudioSource>();
     }
 
     public void Update()
-
     {
         if (controller.FacingRight == true)
         {
@@ -38,18 +35,16 @@ public class Sword : MonoBehaviour
 
         if (ouch.gameObject.CompareTag("Enemy"))
         {
-           // FindObjectOfType<AudioManager>().Play("Orb_Hit");
             audioSource.Play();
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
-
         }
+
         if (ouch.gameObject.CompareTag("Crate"))
         {
-           // FindObjectOfType<AudioManager>().Play("Orb_Hit");
             Instantiate(hitEffect, transform.position, Quaternion.identity);                    
         }
     }

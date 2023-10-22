@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Does damage to a an NPC (the bats usually)
 public class DoDamage : MonoBehaviour
 {
     public int health = 20;
@@ -17,7 +18,6 @@ public class DoDamage : MonoBehaviour
     public GameObject bodyPartCentre;
     public GameObject bodyPartLeft;
     public GameObject bodyPartRight;
-
     void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
@@ -57,9 +57,7 @@ public class DoDamage : MonoBehaviour
 
         }
     }
-
     void Bones()
-
     {
         GameObject boneInstance1;
         GameObject boneInstance2;
@@ -68,7 +66,6 @@ public class DoDamage : MonoBehaviour
         boneInstance1 = Instantiate(bodyPartCentre, transform.position + new Vector3(-0.2f, -0.2f, -0.2f), Quaternion.identity);
         boneInstance2 = Instantiate(bodyPartLeft, transform.position + new Vector3(0.2f, 0.2f, 0.2f), Quaternion.identity);
         boneInstance3 = Instantiate(bodyPartRight, transform.position + new Vector3(0.4f, 0.4f, 0.4f), Quaternion.identity);
-
     }
 
     void Die()

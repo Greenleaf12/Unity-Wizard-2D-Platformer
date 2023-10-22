@@ -43,11 +43,6 @@ public class SkeletonNew : MonoBehaviour
     private AudioClip shootClip;
     public AudioClip walkSound;
 
-    private void Awake()
-    {
-
-    }
-
     void Start()
     {
         if (leftCap == 0)

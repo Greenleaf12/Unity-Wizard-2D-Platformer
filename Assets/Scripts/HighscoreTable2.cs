@@ -6,17 +6,14 @@ using CodeMonkey.Utils;
 
 public class HighscoreTable2 : MonoBehaviour
 {
-
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highscoreEntryTransformList;
 
     private void Awake()
     {
-
         entryContainer = transform.Find("highscoreEntryContainer");
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
-
         entryTemplate.gameObject.SetActive(false);
         //PlayerPrefs.DeleteAll();
 
@@ -33,7 +30,6 @@ public class HighscoreTable2 : MonoBehaviour
             AddHighscoreEntry(50, "MEL");
             AddHighscoreEntry(25, "ROR");
       
-
             // Reload
             jsonString = PlayerPrefs.GetString("highscoreTable");
             highscores = JsonUtility.FromJson<Highscores>(jsonString);
@@ -121,7 +117,6 @@ public class HighscoreTable2 : MonoBehaviour
 
         }
         */
-
         transformList.Add(entryTransform);
     }
 
@@ -166,5 +161,4 @@ public class HighscoreTable2 : MonoBehaviour
         public int score;
         public string name;
     }
-
 }

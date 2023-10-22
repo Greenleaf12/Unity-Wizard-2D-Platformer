@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Flips NPC (Skeleton Mage)
 public class FlipNPC : MonoBehaviour
 {
     public GameObject SkeletonScript;
@@ -17,7 +18,6 @@ public class FlipNPC : MonoBehaviour
         if (turnaround.gameObject.tag == "Player")
         {
                 script.Flip();
-                //return;
         }
     }
 }

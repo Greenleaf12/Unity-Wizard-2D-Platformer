@@ -8,7 +8,6 @@ public class ObjectBreak : MonoBehaviour
     public int health = 100;
     public GameObject deathEffect;
     public ParticleSystem hitEffect;
-
     private void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
@@ -22,19 +21,13 @@ public class ObjectBreak : MonoBehaviour
 
         if (health <= 0)
         {
-
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-
-            //FindObjectOfType<AudioManager>().Play("Skeleton_Die");
-            Die();
-            
+            Die();           
         }     
     }
 
     void Die()
-    {
-        
-        Destroy(gameObject);
+    {      
+        Destroy(gameObject);  
     }  
-
 }

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using PathCreation;
 
+// Telekinesis ability
 public class TeleKi : MonoBehaviour
 {
     Vector2 difference = Vector2.zero;
@@ -34,8 +34,7 @@ public class TeleKi : MonoBehaviour
         GameObject pFX = GameObject.FindWithTag("PFX");
         playerTelekEffect = pFX.GetComponent<ParticleSystem>();
         Collider = GetComponent<Collider2D>();
-        Collider.enabled = true;
-        
+        Collider.enabled = true;       
     }
 
     private void OnMouseDown()
@@ -46,12 +45,10 @@ public class TeleKi : MonoBehaviour
             FindObjectOfType<AudioManager>().SetVolume("TeleK", 0.6f);
             animator.SetBool("IsTeleK", true);
             smasherObj.SetActive(false);
-
         }
     }
 
     private void OnMouseDrag()
-
     {
         if (gameObject !=null)
         {
@@ -63,15 +60,12 @@ public class TeleKi : MonoBehaviour
             telekEffect.Play();
             playerTelekEffect.Play();
             Light.intensity = 2.0f;
-
             Collider.enabled = false;
-
         }     
     }
 
     private void OnMouseUp()
     {
-
         FindObjectOfType<AudioManager>().Fade("TeleK");
         isTeleActive = false;
         Target = null;
@@ -81,12 +75,10 @@ public class TeleKi : MonoBehaviour
         animator.SetBool("IsTeleK", false);
         Collider.enabled = true;
         smasherObj.SetActive(true);
-
     }
 
     void Update()
-    {
-        
+    {      
         if (gameObject != null && playerTelekEffect != null )
         {
             difference = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);// - (Vector2)transform.position;
@@ -106,7 +98,6 @@ public class TeleKi : MonoBehaviour
                     particles[i] = particle;
                 }
             }
-
             playerTelekEffect.SetParticles(particles, count);
         }    
     }

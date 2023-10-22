@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class PlayerMovement : MonoBehaviour
 {
-
 	public CharacterController2D controller;
 	public Animator animator;
 	public PlayerSwordFX PlayerSwordSwing;
@@ -43,15 +41,11 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Update()
 	{
-
 		staminaTotal = staminabar.staminaAmount;
-
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
 		animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
 		// Jumping //
-
 		if (Input.GetButtonDown("Jump") && staminaTotal > 10f)
 		{
 			jump = true;
@@ -66,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		// Crouching //
-
 		if (Input.GetButtonDown("Crouch"))
 		{
 			crouch = true;
@@ -77,21 +70,18 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		// Running //
-
 		if (Input.GetButton("Run"))
 		{
 			if (staminaTotal > 10f)
 			{
 				running = true;
-				runSpeed = 80f;
-				
+				runSpeed = 80f;			
 			}
 			else
 			{
 				runningEffect.Stop();
 				running = false;
-				runSpeed = 40f;
-				
+				runSpeed = 40f;			
 			}
 		}
 
@@ -110,19 +100,13 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		// Sword Attack // 
-
 		if (Input.GetButtonDown("Fire1") && Time.time > nextFireTime)
 		{
 			Sword();
 			nextFireTime = Time.time + cooldownTime/4;
 		}
-		else if (Input.GetButtonUp("Fire1"))
-		{
-
-		}
 
 		// Staff Attack //
-
 		if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFireTime)
 		{
 			//attacking = true;
@@ -135,7 +119,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		// Running Sound //
-
 		if (Input.GetButtonDown("Horizontal"))
 		{
 			FindObjectOfType<AudioManager>().Play("Run");
@@ -146,14 +129,12 @@ public class PlayerMovement : MonoBehaviour
 			FindObjectOfType<AudioManager>().Stop("Run");
 			walking = false;
 		}
-
 	}
 
 	public void Sword()
 	{
 		animator.SetTrigger("Sword");
-		PlayerSwordSwing.PlayClip();
-		
+		PlayerSwordSwing.PlayClip();		
 	}
 
 	public void Kick()
@@ -163,9 +144,7 @@ public class PlayerMovement : MonoBehaviour
 		staffexplode.Play();
 		Instantiate(particleprefab, firePoint.position, firePoint.rotation);
 		FindObjectOfType<AudioManager>().Play("Staff_Fire");
-
 	}
-
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -178,7 +157,6 @@ public class PlayerMovement : MonoBehaviour
 		{
 			Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 		}
-
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -187,9 +165,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			Destroy(other.gameObject);
 		}
-
 	}
-
 
 	public void OnLanding()
 	{

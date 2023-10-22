@@ -5,7 +5,6 @@ using UnityEditor;
 
 public class SkeletonSpawner : MonoBehaviour
 {
-
     public GameObject enemyPrefab;
     public ParticleSystem particlePrefab;
     public ParticleSystem particlePrefab_2;
@@ -17,16 +16,9 @@ public class SkeletonSpawner : MonoBehaviour
 
     private AudioSource m_MyAudioSource;
 
-    // Start is called before the first frame update
     void Start()
     {
         m_MyAudioSource = GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnTriggerStay2D(Collider2D other)
@@ -54,13 +46,10 @@ public class SkeletonSpawner : MonoBehaviour
     public void Destroy()
 
     {
-
         FindObjectOfType<AudioManager>().Play("Teleporter");
-
         Instantiate(particlePrefab, transform.position, Quaternion.identity);
         Instantiate(particlePrefab_2, transform.position, Quaternion.identity);
         Instantiate(particlePrefab_3, transform.position, Quaternion.identity);
         Destroy(gameObject);
-
     }
 }

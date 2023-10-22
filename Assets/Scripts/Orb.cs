@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// player weapon projectile
 public class Orb : MonoBehaviour
 {
-
     public float speed = 50f;
     public int damage = 40;
     public Rigidbody2D rb;
@@ -15,34 +15,26 @@ public class Orb : MonoBehaviour
     public ParticleSystem playerBlood;
     void Start()
     {
-            rb.velocity = transform.right * speed * 5;
-            audioSource = this.GetComponent<AudioSource>();
-
+        rb.velocity = transform.right * speed * 5;
+        audioSource = this.GetComponent<AudioSource>();
         {
             StartCoroutine(TimerCoroutinex());
         }
-
         IEnumerator TimerCoroutinex()
         {
-            // Wait
             yield return new WaitForSeconds(2.5f);
             Destroy(gameObject);
-
         }
     }
+
     void OnTriggerEnter2D (Collider2D ouch)
-    {
-        
+    {        
         EnemyHit enemy = ouch.GetComponent<EnemyHit>();
 
         if (ouch.gameObject.CompareTag("Player"))
         {
             FindObjectOfType<AudioManager>().Play("Orb_Hit");
-            //FindObjectOfType<AudioManager>().Play("Elec_Hit");
-
-            audioSource.Play();
-            
-               
+            audioSource.Play();                      
             Instantiate(orbEffect, transform.position, Quaternion.identity);
             if (ouch != null)
             {
@@ -52,7 +44,6 @@ public class Orb : MonoBehaviour
                 //Play Blood Effect
                 Instantiate(playerBlood, transform.position, Quaternion.identity);
             }
-
             Destroy(gameObject);
         }
 

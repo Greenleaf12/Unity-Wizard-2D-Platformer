@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Fade for Text
 public class Fader : MonoBehaviour
 {
-
     public Text regionName;
     private float fadeTime;
     private bool fadingIn;
 
-    // Start is called before the first frame update
     void Start()
     {
         regionName.CrossFadeAlpha(0, 0.0f, false);
@@ -18,7 +17,6 @@ public class Fader : MonoBehaviour
         fadingIn = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (fadingIn)
@@ -39,21 +37,16 @@ public class Fader : MonoBehaviour
         if (regionName.color.a == 1 && fadeTime > 1.5f)
         {
             fadingIn = false;
-            fadeTime = 0;
-            
+            fadeTime = 0;       
         }       
     }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Region")
-
         {
             fadingIn = false;
             regionName.text = other.name;
         }
-
-
     }
 }

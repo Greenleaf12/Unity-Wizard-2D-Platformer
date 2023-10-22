@@ -2,27 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Drops a coin on object destroyed
 public class DropCoin : MonoBehaviour
 {
-
     public GameObject coins;
     public int CoinAmount;
 
     private void OnDestroy()
     {
         Coins();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void Coins()
@@ -34,9 +22,5 @@ public class DropCoin : MonoBehaviour
         {
             coinInstance1 = Instantiate(coins, transform.position + new Vector3(0.2f, 0.2f, 0.2f), Quaternion.identity);
         }
-
-
-
-
     }
 }

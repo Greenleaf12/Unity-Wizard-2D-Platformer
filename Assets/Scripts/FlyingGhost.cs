@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// flying ghost enemy
 public class FlyingGhost : MonoBehaviour
 {
     public float speed;
     private GameObject player;
-
     private bool chase = false;
     public Transform startingPoint;
 
@@ -20,7 +20,6 @@ public class FlyingGhost : MonoBehaviour
 
     void Start()
     {
-
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = this.GetComponent<AudioSource>();
 
@@ -41,8 +40,7 @@ public class FlyingGhost : MonoBehaviour
     }
 
     public void OnTriggerStay2D(Collider2D other)
-    {
-       
+    {  
         if (other.gameObject.tag == "Player")
         {
             chase = true;
@@ -64,18 +62,16 @@ public class FlyingGhost : MonoBehaviour
     }
 
     private void attacking()
-    
     {
-            animator.SetBool("IsAttacking", true);
-            if (Time.time > nextFireTime)
-            {
-                FindObjectOfType<AudioManager>().Play("Bat_Attack");
-                nextFireTime = Time.time + cooldownTime;
-            }
+        animator.SetBool("IsAttacking", true);
+        if (Time.time > nextFireTime)
+        {
+            FindObjectOfType<AudioManager>().Play("Bat_Attack");
+            nextFireTime = Time.time + cooldownTime;
+        }
     }
 
     private void Chase()
-
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position + new Vector3(3.2f , 1.0f , 0.0f), speed * Time.deltaTime);          
     }

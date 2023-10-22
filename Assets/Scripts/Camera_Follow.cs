@@ -15,12 +15,10 @@ public class Camera_Follow : MonoBehaviour
         player = GameObject.Find("Player");
         target = player.transform;
     }
-    
-
+  
     private void FixedUpdate()
     {
-        Follow();
-        
+        Follow();      
     }
 
     void Follow()

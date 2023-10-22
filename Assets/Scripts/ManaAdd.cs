@@ -10,14 +10,11 @@ public class ManaAdd : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.gameObject.CompareTag("Player"))
-
         {
             FindObjectOfType<ManaBarNew>().AddMana(AddManaAmount);
             Destroy(gameObject);
             FindObjectOfType<AudioManager>().Play("Coin");
-        }
-    
+        }   
     }
 }

@@ -22,11 +22,9 @@ public class MainMenu : MonoBehaviour
     public void Start()
     {
         FindObjectOfType<AudioManager>().Play("Music");
-
     }
 
     public void PlayGame()
-
     {
         Debug.Log("Name is" + globalUserName);
         StartCoroutine(StartGame());
@@ -34,9 +32,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        
-        yield return new WaitForSeconds(1);
-        
+        yield return new WaitForSeconds(1);       
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -44,5 +40,4 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
 }

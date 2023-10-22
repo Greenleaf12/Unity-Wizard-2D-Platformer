@@ -40,9 +40,7 @@ public class ScoreManager : MonoBehaviour
     public void ChangeScore(int scoreValue)
     {
         globalScore += scoreValue;
-
         text2.text = "Score = " + globalScore.ToString();
-
         //ChangeGlobalScore(globalScore);
     }
 

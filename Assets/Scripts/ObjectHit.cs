@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script for player hitting or shooting objects
+
 public class ObjectHit : MonoBehaviour
 {
     private CharacterController2D controller;
@@ -48,15 +50,12 @@ public class ObjectHit : MonoBehaviour
         }
     }
     public void OnTriggerEnter2D(Collider2D other)
-
     {      
         if (Time.time > nextFireTime)
-        {
-            
+        {          
             audioSource.Play();          
             nextFireTime = Time.time + cooldownTime / 2;  
         }
-
         if (other.gameObject.CompareTag("WizardOrb"))
         {
             hitEffect.Play();
@@ -72,7 +71,6 @@ public class ObjectHit : MonoBehaviour
             hitEffect.Play();
             health -= 1;
         }
-
     }
       
     public void Update()
@@ -84,7 +82,6 @@ public class ObjectHit : MonoBehaviour
             if (controller.m_FacingRight == true)
             {
                 rb = GetComponent<Rigidbody2D>();
-                //rb.mass = 1;
                 rb.velocity = new Vector3(30f, 5, 0);
                 bFirepoint = false;
 
@@ -92,10 +89,8 @@ public class ObjectHit : MonoBehaviour
             else if (controller.m_FacingRight == false)
             {
                 rb = GetComponent<Rigidbody2D>();
-                ///rb.mass = 1;
                 rb.velocity = new Vector3(-30f, 5, 0);
                 bFirepoint = false;
-
             }
         }
 
@@ -108,14 +103,12 @@ public class ObjectHit : MonoBehaviour
     }
 
     public void Gibs()
-
     {        
         for (int i = 0; i < gibAmount; i++)
         {
             int randomIndex = Random.Range(0, gibs.Length);
             Vector3 randomPos = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f), Random.Range(-0.4f, 0.4f));
             Instantiate(gibs[randomIndex], transform.position + randomPos, Quaternion.identity);
-
         }
     }
 }

@@ -16,19 +16,15 @@ public class ManaBar : MonoBehaviour
     private RawImage barRawImage;
 
     private void Awake()
-
     {
         barMaskRectTransform = transform.Find("barMask").GetComponent<RectTransform>();
         barRawImage = transform.Find("barMask").Find("bar").GetComponent<RawImage>();
-
-        //barImage = transform.Find("bar").GetComponent<Image>();
 
         barMaskWidth = barMaskRectTransform.sizeDelta.x;
 
         mana = new Mana();
 
         edgeRectTransform = transform.Find("barMask").Find("BarEdge").GetComponent<RectTransform>();
-
     }
 
     private void Update()
@@ -46,14 +42,9 @@ public class ManaBar : MonoBehaviour
         manaTotal = mana.manaAmount;
         
         edgeRectTransform.anchoredPosition = new Vector2(mana.GetManaNormalized() * barMaskWidth+25, 0); // 965 / 475
-
     }
 
-
-
-
     public class Mana
-
     { 
         public const int MANA_MAX = 50;
         public float manaAmount;
@@ -83,7 +74,6 @@ public class ManaBar : MonoBehaviour
                 manaRegenAmount = 2f;
             }
         }
-
         public void SpendMana (int amount)
         {
                 manaAmount -= amount;
@@ -94,12 +84,9 @@ public class ManaBar : MonoBehaviour
             manaAmount += amount;
         }
 
-
         public float GetManaNormalized()
         {
             return manaAmount / MANA_MAX;
-        }
-
-        
-}     
+        }   
+    }     
 }

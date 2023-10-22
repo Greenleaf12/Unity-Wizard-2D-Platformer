@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script for flying enemys 
 public class FlyingEnemy : MonoBehaviour
 {
     public float speed;
@@ -76,13 +77,11 @@ public class FlyingEnemy : MonoBehaviour
         }
     }
     private void Chase()
-
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position + new Vector3(1.0f , 2.6f , 0.0f), speed * Time.deltaTime);           
     }
 
     private void ReturnHome()
-
     {
         animator.SetBool("IsAttacking", false);
         transform.position = Vector2.MoveTowards(transform.position, startingPoint, speed/4 * Time.deltaTime);

@@ -16,7 +16,6 @@ public class TurnAround : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D turnaround)
     {
-
         if (turnaround.gameObject.tag == "Player")
         {
             if (transform.position.x > player.transform.position.x)
@@ -24,15 +23,11 @@ public class TurnAround : MonoBehaviour
                 script.facingLeft = true;
                 script.facingRight = false;
             }
-
             if (transform.position.x < player.transform.position.x)
             {
                 script.facingRight = true;
                 script.facingLeft = false;
-            }
-
-                
-
+            }              
         }
     }
 }

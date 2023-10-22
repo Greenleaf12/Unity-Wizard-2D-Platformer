@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
@@ -50,7 +49,6 @@ public class CharacterController2D : MonoBehaviour
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
 	}
-
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -79,6 +77,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 	}
+
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Platform")
@@ -86,31 +85,29 @@ public class CharacterController2D : MonoBehaviour
 			m_AirControl = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, downForce));
 		}
-	}
-	public void OnCollisionExit2D(Collision2D collision)
-	{
-		m_AirControl = true;
-		
+
 	}
 
+	public void OnCollisionExit2D(Collision2D collision)
+	{
+		m_AirControl = true;	
+	}
 
 	public void Move(float move, bool crouch, bool jump)
 	{
-		// If crouching, check to see if the character can stand up
+		// If crouching check if character can stand up
 		if (!crouch)
 		{
-			// If the character has a ceiling preventing them from standing up, keep them crouching
+			// If character has a ceiling preventing them from standing up, keep them crouching
 			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
 			{
 				crouch = true;
 			}
 		}
 
-		//only control the player if grounded or airControl is turned on
+		//control player if grounded or aircontrol is on
 		if (m_Grounded || m_AirControl)
 		{
-
-			// If crouching
 			if (crouch)
 			{
 				if (!m_wasCrouching)
@@ -118,11 +115,10 @@ public class CharacterController2D : MonoBehaviour
 					m_wasCrouching = true;
 					OnCrouchEvent.Invoke(true);
 				}
-
-				// Reduce the speed by the crouchSpeed multiplier
+				//crouch speed
 				move *= m_CrouchSpeed;
 
-				// Disable one of the colliders when crouching
+				// Disable colliders when crouching
 				if (m_CrouchDisableCollider != null)
 					m_CrouchDisableCollider.enabled = false;
 			} else
@@ -138,7 +134,7 @@ public class CharacterController2D : MonoBehaviour
 				}
 			}
 
-			// Move the character
+			// Move character
 			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 
 			// Movement smoothing
@@ -174,13 +170,12 @@ public class CharacterController2D : MonoBehaviour
 				yield return new WaitForSeconds(0.6f);
 				m_Rigidbody2D.AddForce(new Vector2(0f, downForce));
 			}
-		}
-		
+		}	
 	}
 
 	private void Flip()
 	{
-		// Switch the way the player is labelled as facing.
+		//Flip player
 		m_FacingRight = !m_FacingRight;
 		transform.Rotate(0f, 180f, 0f);		
 	}

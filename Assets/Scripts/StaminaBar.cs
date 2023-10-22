@@ -6,9 +6,7 @@ using UnityEngine.UI;
 public class StaminaBar : MonoBehaviour
 {
     public GameObject player;
-
     private Image barImage;
-
     public Animator m_Animator;
 
     public const int STAMINA_MAX = 200;
@@ -17,20 +15,16 @@ public class StaminaBar : MonoBehaviour
     public float newstaminaRegenAmount;
 
     private void Awake()
-
     {
         player = GameObject.Find("Player");
-        barImage = transform.Find("bar").GetComponent<Image>();
-      
+        barImage = transform.Find("bar").GetComponent<Image>();    
         staminaAmount = 200;
         staminaRegenAmount = 3f;
     }
 
     private void Update()
     {
-
         barImage.fillAmount = GetStaminaNormalized();
-
         staminaAmount += staminaRegenAmount * Time.deltaTime;
         staminaAmount = Mathf.Clamp(staminaAmount, -10f, STAMINA_MAX);
 
@@ -42,15 +36,7 @@ public class StaminaBar : MonoBehaviour
         {
             staminaRegenAmount = newstaminaRegenAmount;
         }
-
-       // if (Input.GetButtonDown("Jump") && (m_Animator.GetBool("IsJumping" ) == false) && staminaAmount > 20)
-       // if (Input.GetButtonDown("Jump") && staminaAmount > 20)
-       // {
-       //     RemoveStamina(10);
-       // }
-
     }
-
 
     public void RemoveStamina(int amount)
     {
@@ -66,6 +52,4 @@ public class StaminaBar : MonoBehaviour
     {
         return staminaAmount / STAMINA_MAX;
     }
-
 }  
-
