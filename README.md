@@ -21,7 +21,13 @@ I also did all the art work in Photoshop and animations in Adobe Animate. I did 
 I spent many hours on this project and hope to do more and have atleast 3 levels of action.
 
 
-https://github.com/Greenleaf12/Unity-Wizard-2D-Platformer/assets/74846782/ed103f87-8e59-4d89-869a-f27577554837
+https://github.com/RLG42/Unity-Wizard-2D-Platformer/assets/74846782/cc11358f-d692-49e1-893a-b7dfee6f043a
+
+![w1](https://github.com/RLG42/Unity-Wizard-2D-Platformer/assets/74846782/a88c6eb1-be86-453f-99f9-c7faec3b5513)
+![w2](https://github.com/RLG42/Unity-Wizard-2D-Platformer/assets/74846782/d9754154-3b67-4e21-ba3f-00a046120cdd)
+![w3](https://github.com/RLG42/Unity-Wizard-2D-Platformer/assets/74846782/0191808d-9b1e-4d7d-a059-993b905c7d3f)
+![w4](https://github.com/RLG42/Unity-Wizard-2D-Platformer/assets/74846782/9580a27f-79c2-4e95-960a-ba89a1e70aed)
+![w5](https://github.com/RLG42/Unity-Wizard-2D-Platformer/assets/74846782/313d535d-a3ec-4151-9edd-de9550ff5564)
 
 ![2023-09-20 12-56-12 00_00_38_05 Still005](https://github.com/Greenleaf12/Unity-Wizard-2D-Platformer/assets/74846782/331b44e6-4db8-4213-b96b-050b318c88b7)
 ![2023-09-20 12-56-12 00_01_06_26 Still009](https://github.com/Greenleaf12/Unity-Wizard-2D-Platformer/assets/74846782/dcd0a0f0-7d21-4f23-bd64-e926e8b8f5c3)
